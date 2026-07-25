@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium AI Assistants for UK Websites | AskMeAI</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #060913;
+            --bg-card: #0f1526;
+            --border-color: #1e293b;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-blue-hover: #2563eb;
+            --accent-shield: #10b981;
+            --font-stack: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-stack); -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--bg-main); color: var(--text-primary); line-height: 1.6; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        /* Interactive Application Header layout */
+        .header-bar { max-width: 720px; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; margin-bottom: 20px; position: relative; }
+        .logo-area { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text-primary); text-decoration: none; }
+        .logo-dot { width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%; display: inline-block; }
+        
+        .nav-controls { display: flex; align-items: center; }
+        .menu-trigger { background: none; border: none; color: var(--text-secondary); font-size: 1.3rem; cursor: pointer; padding: 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+        .menu-trigger:hover { background: #1e293b; color: var(--text-primary); }
+
+        /* Unified Contextual Dropdown Menu */
+        .dropdown-panel { position: absolute; top: 65px; right: 0; width: 220px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 8px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.7); display: none; z-index: 100; }
+        .dropdown-panel.active { display: block; animation: smoothReveal 0.15s ease-out; }
+        .dropdown-panel a, .dropdown-panel button { display: flex; width: 100%; align-items: center; padding: 10px 14px; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; border: none; background: none; text-align: left; cursor: pointer; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+        .dropdown-panel a:hover, .dropdown-panel button:hover { background: #1e293b; color: var(--text-primary); }
+        .dropdown-divider { height: 1px; background: var(--border-color); margin: 6px 0; }
+
+        /* Main Shell Container */
+        .container { max-width: 720px; width: 100%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 50px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); position: relative; }
+        
+        h1 { font-size: 2.4rem; color: var(--text-primary); margin-bottom: 12px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+        .subtitle { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; font-weight: 400; }
+        
+        /* Core Values List */
+        ul { list-style: none; margin-bottom: 40px; }
+        li { margin-bottom: 18px; display: flex; align-items: flex-start; color: #cbd5e1; font-size: 1.05rem; }
+        li::before { content: "✓"; color: var(--accent-blue); font-weight: bold; margin-right: 14px; font-size: 1.1rem; line-height: 1.4; }
+        li strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Unified Direct-Contact Box Conversion Element */
+        .email-cta-box { background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.2); padding: 24px; border-radius: 8px; text-align: center; margin-bottom: 10px; }
+        .cta-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); font-weight: 600; margin-bottom: 6px; }
+        .cta-email-link { display: inline-block; font-size: 1.4rem; color: var(--accent-blue); text-decoration: none; font-weight: 700; transition: color 0.2s; }
+        .cta-email-link:hover { color: var(--accent-blue-hover); text-decoration: underline; }
+
+        .footer { font-size: 0.85rem; color: #64748b; border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; margin-top: 40px; }
+
+        @keyframes smoothReveal {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Framework Application Navbar Header -->
+    <header class="header-bar">
+        <a href="index.html" class="logo-area">
+            <span class="logo-dot"></span>AskMeAI
+        </a>
+        
+        <div class="nav-controls">
+            <!-- Consolidated Navigation Trigger -->
+            <button class="menu-trigger" id="menuBtn" aria-label="Toggle Menu" title="Navigation Menu">☰</button>
+        </div>
+
+        <!-- Integrated Dropdown Menu -->
+        <div class="dropdown-panel" id="menuDropdown">
+            <a href="index.html">🏠 Home Overview</a>
+            <a href="services.html">🛠️ System Architecture</a>
+            <div class="dropdown-divider"></div>
+            <button onclick="alert('Redirecting to secure account registration...')">🔑 Create Account</button>
+            🔓 Sign In</button>
+            <div class="dropdown-divider"></div>
+            <button onclick="alert('Secure session storage flushed.')" style="color: #ef4444;">🔒 Sign Out</button>
+            <div class="dropdown-divider"></div>
+            <a href="mailto:hello@askmeai.co.uk">📧 Direct Support Inbox</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Custom AI Assistants for United Kingdom Websites</h1>
+        <p class="subtitle">Automate your customer communication, order tracking, and lead generation 24/7 with a custom digital employee built securely for your website.</p>
+        
+        <ul>
+            <li><strong>Bespoke Integrations</strong>: Connected directly with your custom system database or checkout systems.</li>
+            <li><strong>Data Protection</strong>: Engineered behind secure, encrypted network endpoints running TLS 1.3.</li>
+            <li><strong>70%+ Response Optimization</strong>: Instantly deflect routine tracking and information emails away from support staff.</li>
+        </ul>
+
+        <!-- Direct Direct-Email Call to Action -->
+        <div class="email-cta-box">
+            <div class="cta-label">Initiate System Integration Assessment</div>
+            <a href="mailto:hello@askmeai.co.uk" class="cta-email-link">hello@askmeai.co.uk</a>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 AskMeAI. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <!-- UI State Control Script Initialization -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown instantly if clicking anywhere outside the menu item
+        document.addEventListener('click', () => {
+            menuDropdown.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
